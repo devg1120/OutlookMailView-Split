@@ -208,13 +208,19 @@ function sidebarCollapseClick() {
       //menutext.style.display = "inline";
       items.forEach((i) => {
         i.style.display = "inline";
+	     // https://qiita.com/nightyknite/items/668c112c40931515ed67
+        i.style.opacity = 0; 
+        i.style.transition = "opacity " + 2000 + "ms";      
+        setTimeout(function(){i.style.opacity = 1;}, 1); 
       });
+      //sidebar.classList.remove("active");
     } else {
       sidebar.classList.add("active");
       //menutext.style.display = "none";
       items.forEach((i) => {
         i.style.display = "none";
       });
+      //sidebar.classList.add("active");
     }
 
     //menutext.fadeToggle(150);
