@@ -24,8 +24,8 @@ let $ = function (para) {
 };
 
 document.addEventListener("DOMContentLoaded", function () {
-  //   var   splitview = new SplitView(); // GS
-  //   splitview.activate(document.getElementById("container"));   // GS
+     var   splitview = new SplitView(); // GS
+     splitview.activate(document.getElementById("container"));   // GS
 
   loadData(sampleMailData);
   sidebarCollapseClick();
@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
   bindMailListItemClick();
   //bindEscKey();
 
+/*
   // Query the element
   const resizer = document.getElementById("dragMe");
   const leftSide = resizer.previousElementSibling;
@@ -94,6 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Attach the handler
   resizer.addEventListener("mousedown", mouseDownHandler);
+  */
 });
 
 function bindMailListItemClick() {
