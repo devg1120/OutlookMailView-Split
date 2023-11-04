@@ -29,10 +29,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   loadData(sampleMailData);
   sidebarCollapseClick();
-  //dropdownClick();
+  dropdownClick();
   //hoverMailActionButtons();
   bindMailListItemClick();
-  //bindEscKey();
+  bindEscKey();
 
 /*
   // Query the element
@@ -147,7 +147,6 @@ function loadMailItem(listItem) {
             .replace('{{ATTACHMENT_SIZE}}', mail.attachments[i].size);
     }
 
-    console.log(strAttachmentsHtml);
 
     if (mail.attachments.length > 0) {
       $('#mail_attachments').innerHTML =  '<ul>' + strAttachmentsHtml + '</ul>' ;
@@ -205,11 +204,13 @@ function highlightMailListItem(listItem) {
 }
 
 function bindEscKey() {
-  $(document).keyup(function (e) {
-    if (e.key === "Escape") {
-      $(".mail_content").hide();
-    }
-  });
+    //var el = document.getElementById("main-container");
+    document.addEventListener("keydown", function(evt) {
+       console.log("keydown");
+       if (evt.key === "Escape") {
+         $(".mail_content").hide();
+       }
+    }, false);
 }
 
 function sidebarCollapseClick() {
@@ -266,6 +267,9 @@ function sidebarCollapseClick() {
 }
 
 function dropdownClick() {
+  let el = $(".dropdown-menu li a");
+  console.log(el);
+/*
   $(".dropdown-menu li a").click(function () {
     var selText = $(this).text();
     $(this)
@@ -273,6 +277,8 @@ function dropdownClick() {
       .find(".dropdown-toggle")
       .html(selText + ' <span class="caret"></span>');
   });
+  */
+
 }
 
 function setResizableElements() {
